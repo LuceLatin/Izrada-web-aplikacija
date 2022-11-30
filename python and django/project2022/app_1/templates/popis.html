@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block popis %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sem_izv</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 30%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+
+        p{
+            font-size:large;
+            font-weight: bold;
+        }
+
+        .semestar{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<h1> Popis: </h1>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    {% for student in data %}
+    <tr>
+        
+            <td>{{student.student_id.username}}</td>
+
+
+
+
+    
+    </tr>
+    {% endfor %}
+</table>
+    
+</body>
+</html>
+
+{% endblock %}

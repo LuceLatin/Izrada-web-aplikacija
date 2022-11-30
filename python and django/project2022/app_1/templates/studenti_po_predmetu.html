@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+{% block studenti_po_predmetu %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>studenti_po_predmetu</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 50%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista studenata po predmetu: </h1><br>
+<p>Upisali su:</p> 
+    <table>
+        <tr>
+          <th>username</th>
+          <th>email</th>
+          <th>status</th>
+
+        </tr>
+        
+        {% for student in data %}
+        <tr>
+          
+          {% if student.status == 'enrolled' %}
+            <td>{{student.student_id.username}}</td>
+            <td>{{student.student_id.email}}</td> 
+            <td>{{student.status}}</td>
+            <td><a href="/prof_pass/{{student.predmet_id.id}}/{{student.student_id.id}}">Upisi predmet kao polozen (pass)</a></td>
+          {% endif %}
+        </tr>
+          {% endfor %}
+        </table>
+
+
+
+        <p>Polozili su:</p> 
+          <table>
+            
+            <tr>
+              <th>username</th>
+              <th>email</th>
+              <th>status</th>
+          {% for student in data %}
+          <tr></tr>
+          
+          {% if student.status == 'pass' %}
+            <td>{{student.student_id.username}}</td>
+            <td>{{student.student_id.email}}</td> 
+            <td>{{student.status}}</td>
+          {% endif %}
+
+    
+            
+            
+        </tr>
+        {% endfor %}
+      </table> <br>
+      </body>
+      </html>
+    
+
+
+
+{% endblock %}

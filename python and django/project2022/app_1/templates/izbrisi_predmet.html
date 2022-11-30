@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block izbrisi_predmet %}
+<form action="{% url 'delete' pred_id stud_id %}" method="POST">
+    <p>Are you sure?</p>
+    {% csrf_token %}
+    <input type="submit" name="yes" value="yes">
+    <input type="submit" name="no" value="no">
+</form>
+{% endblock %}

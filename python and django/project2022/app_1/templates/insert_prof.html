@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block insert_prof %}
+<form method="post">
+    <table>
+    {{form.as_table}}
+    </table>
+    <input type="submit" value="add prof">
+    
+    {% csrf_token %}
+</form>
+{% endblock %}

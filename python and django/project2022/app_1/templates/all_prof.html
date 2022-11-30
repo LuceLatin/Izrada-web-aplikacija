@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% block all_prof %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all_prof</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 50%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+<h1>Lista profesora: </h1>
+    <table>
+        <tr>
+          <th>username</th>
+          <th>email</th>
+          <th>status</th>
+        </tr>
+        {% for prof in data %}
+        <tr>
+            <td>{{prof.username}}</td>
+            <td>{{prof.email}}</td> 
+            <td>{{prof.status}}</td>  
+            
+            {% csrf_token %}
+
+            <td><a href="/editprof/{{prof.id}}"> Edit </a></td>
+    
+        
+        </tr>
+        {% endfor %}
+      </table><br>
+
+      <a style='font-size: 20px;' href="/addprof/">Add prof</a>
+      <br>
+      <br>
+    </body>
+    </html>>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% block predmeti_po_prof %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>predmeti_po_prof</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista predmeta po profesoru: </h1>
+<table>
+    <tr>
+      <th>name</th>
+      <th>kod</th>
+      <th>program</th>
+      <th>ects</th>
+      <th>sem_red</th>
+      <th>sem_izv</th>
+      <th>izborni</th>
+    </tr>
+    {% for predmet in data %}
+    <tr>
+        <td>{{predmet.name}}</td>
+        <td>{{predmet.kod}}</td> 
+        <td>{{predmet.program}}</td> 
+        <td>{{predmet.ects}}</td> 
+        <td>{{predmet.sem_red}}</td> 
+        <td>{{predmet.sem_izv}}</td>
+        <td>{{predmet.izborni}}</td> 
+
+            {% csrf_token %}
+            <td><a href="/studentipopredmetu/{{predmet.id}}">Vidi popis studenata </a></td>
+            <!-- <td><a href="/popis/{{predmet.id}}">Vidi popis studenata</a></td> -->
+
+    </tr>    
+
+    {% endfor %}
+    
+  </table>
+</body>
+</html>
+
+{% endblock %}

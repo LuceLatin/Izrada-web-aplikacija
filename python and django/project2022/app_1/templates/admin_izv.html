@@ -1,0 +1,429 @@
+{% extends 'base.html'%}
+{% block sem_izv %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sem_izv</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 30%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+
+        p{
+            font-size:large;
+            font-weight: bold;
+        }
+
+        .semestar{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1> Predmeti za izvanredne studente po semestrima: </h1>
+    <a style='font-size: 20px;'  href="/logout/">Logout</a>
+    <br><br>
+
+    <p class = "semestar">1. semestar:</p>
+
+    <p >Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 1 %}
+    <tr>
+        <td>{{predmet.predmet_id.name}}</td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr> 
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 1 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+        <p>Neupisano:</p>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+       
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 1 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+        
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p class = "semestar">2. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 2 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>   
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 2 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+
+        <p>Neupisano:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 2 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p class = "semestar">3. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 3 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr> 
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 3 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+        <p>Neupisano:</p>
+    <table>
+        <tr> <th>Name</th> </tr>
+    
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 3 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p class = "semestar">4. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 4 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 4 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+        <p>Neupisano:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 4 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p class = "semestar">5. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 5 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 5 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+
+
+        <p>Neupisano:</p>
+    <table>
+        <tr><th>Name</th></tr>
+       
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 5 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p class = "semestar">6. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th> </tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 6 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 6 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+
+        <p>Neupisano:</p>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+       
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 6 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p class = "semestar">7. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 7 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 7 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+
+        <p>Neupisano:</p>
+    <table>
+        <tr> <th>Name</th> </tr>
+       
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 7 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+    <p class = "semestar">8. semestar:</p>
+
+    <p>Položeno:</p>
+    <table>
+        <tr><th>Name</th></tr>
+    {% for predmet in pass %}
+    {% if predmet.predmet_id.sem_izv == 8 %}
+    <tr>
+        <td> {{predmet.predmet_id.name}}   </td>
+        <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+    <p>Upisano:</p>
+    <table>
+            <tr><th>Name</th></tr>
+        {% for predmet in enrolled %}
+        {% if predmet.predmet_id.sem_izv == 8 %}
+        <tr>
+            <td> {{predmet.predmet_id.name}}   </td>
+            <td><a href="/editupisnilist/{{predmet.predmet_id.id}}/{{predmet.student_id.id}}"> edit </a></td>
+
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+        <p>Neupisano:</p>
+    <table>
+        <tr> <th>Name</th> </tr>
+    {% for predmet in other %}
+    {% if predmet.sem_izv == 8 %}
+    <tr>
+        <td> {{predmet.name}}   </td>
+        <td><a href="/upisipredmetadmin/{{predmet.id}}/{{stud_id}}"> upisi predmet </a></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+<br><br>
+    <a style='font-size: 20px;'  href="/logout/">Logout</a>
+    {% csrf_token %}
+</body>
+</html>
+{% endblock %}
+
+

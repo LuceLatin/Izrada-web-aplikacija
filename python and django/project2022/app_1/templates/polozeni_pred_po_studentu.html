@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block polozeni_pred_po_studentu %}
+<h1>Studenti koji su polozili predmet: </h1>
+
+    {% for ul in data %}
+
+        {{ul.student_id.username}} <br>
+
+    {% endfor %}
+
+
+
+{% endblock %}

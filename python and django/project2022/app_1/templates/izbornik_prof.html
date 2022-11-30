@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block izbornik_prof %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>izbornik_prof</title>
+
+    <style>
+        a:link, a:visited {
+          background-color: #f44336;
+          color: white;
+          padding: 14px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+        
+        a:hover, a:active {
+          background-color: red;
+        }
+        </style>
+</head>
+<body>
+    
+
+    <h1>Izbornik za profesora: </h1>
+    <a href="/predmetipoprof/">Predmeti</a>
+    <a href="/logout/">Logout</a>
+
+
+    {% csrf_token %}
+
+
+
+</body>
+</html>
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block insert_subject %}
+<form method="post">
+    <table>
+    {{form.as_table}}
+    </table>
+    <input type="submit" value="add subject">
+    
+    {% csrf_token %}
+</form>
+{% endblock %}

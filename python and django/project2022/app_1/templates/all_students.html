@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% block all_students %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all_students</title>
+
+    <style>
+        table, td, th {
+          border: 1px solid;
+        }
+
+        table {
+          width: 50%;
+          border-collapse: collapse;
+        }
+        td{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista studenata: </h1>
+    <table>
+        <tr>
+          <th>username</th>
+          <th>email</th>
+          <th>status</th>
+
+        </tr>
+        {% for student in data %}
+        <tr>
+            <td>{{student.username}}</td>
+            <td>{{student.email}}</td> 
+            <td>{{student.status}}</td> 
+    
+            {% csrf_token %}
+
+            <td><a href="/editstudent/{{student.id}}"> Edit    </a></td>
+            <td><a href="/listapredmetapostudentu/{{student.id}}"> Upisni list    </a></td>
+
+            
+        </tr>
+        {% endfor %}
+      </table> <br>
+
+      <a style='font-size: 20px;' href="/addstudent/">Add student</a> <br>
+      <a style='font-size: 20px;' href="/addupisnilist/">Dodaj upisni list</a>
+      <br>
+      <br>
+
+  </body>
+  </html>
+
+
+{% endblock %}

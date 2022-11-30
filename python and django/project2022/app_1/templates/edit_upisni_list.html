@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block edit_upisni_list %}
+<h1>Promjena statusa (enrolled/pass): </h1>
+<form method="POST">
+    Student: {{student.username}}<br>
+    Predmet: {{predmet}}<br>
+
+    {{form}}<br>
+
+    {% csrf_token %}
+        <input type="submit" value="update">
+</form>
+{% endblock %}
